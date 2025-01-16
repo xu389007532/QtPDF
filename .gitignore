@@ -1,0 +1,89 @@
+
+/build
+/dist
+/Finish
+/FX
+/output_images
+/PDF
+/output
+/OutputPDF
+/ocr
+/report
+/Share不用
+/Finish1
+/bspdf
+/bs_file1
+/bak
+/bak_ui
+/__pycache__
+/1861872
+/bak20221203
+/extracted_images
+/Finish2
+*.exe
+*.png
+*.pdf
+*.docx
+*.ico
+*.spec
+*.xlsx
+/.idea
+補數測試.py
+測試功能.py
+檢查下劃線顏色.py
+分切成品.py
+ui_main_ms - bakup1.py
+*.csv
+*.7z
+App1.ini
+bagtagstest.py
+*.xls
+matplotlib 顯示圖像放到PyQt5里.py
+main_20221203.py
+main_20221206.py
+ocrPDF.py
+pandstest.py
+PDF_convert.py
+PDF_Extract_images.py
+PDF_font_color.txt
+PDF_ImagesInfo1.py
+PDF_logfile.txt
+PDF_MergeAndSplit - Backup1.py
+PDF_MergeAndSplit_20240704.py
+PDF_MergeAndSplit_20240812.py
+PDF_MergeAndSplit_backup2.py
+PDF_MergeAndSplit_config.ini
+PDFoutput_Excel.py
+PDFtypesetting - backup on 20230203.py
+PDFtypesetting - backup on 20230207.py
+PDFtypesetting - backup on 20230224.py
+PDFtypesetting - backup on 20230313.py
+PDFtypesetting - backup on 20230315 (最後一箱合並).py
+PDFtypesetting - backup on 20230603(要处理NP 在下面和右面加页码).py
+PDFtypesetting - backup on 20230822(要處理沒出血位重復的情況).py
+PDFtypesetting - backup on 20231012(没有判断标准PDF档页数是否一样).py
+pyenv.py
+Lite_DB.db
+searchfor.py
+Source/simsun.ttc
+Source/userCommon.xml
+test2.py
+test5.py
+test_insettext.py
+test_re.py
+testbs.py
+testini.py
+testscan.py
+kill.py
+info.txt
+gui.py
+getcolor.py
+get_textcolor.py
+even1.py
+Email.py
+createPDFTable.py
+createPDF.py
+checkPDF.py
+check_PDF.py
+changeTextColor.py
+BsPDF - bak20230318.py
