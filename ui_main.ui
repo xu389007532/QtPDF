@@ -1,0 +1,1272 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1259</width>
+    <height>821</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Honour PDF排版及數據處理軟件</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="resourcefile.qrc">
+    <normaloff>:/ico_file/sourcefile/title.ico</normaloff>:/ico_file/sourcefile/title.ico</iconset>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QLabel{
+	color: rgb(0, 0, 127);
+	font: 12pt &quot;Microsoft Sans Serif&quot;;
+}
+QComboBox{
+	font: 12pt &quot;Microsoft Sans Serif&quot;;
+}
+QLineEdit{
+font: 12pt &quot;Microsoft Sans Serif&quot;;
+}
+QTableView{
+	border-color: rgb(0, 85, 0);
+	
+	alternate-background-color: rgb(230, 201, 255);
+	background-color: rgb(199, 205, 255);
+/*	selection-background-color: rgb(85, 255, 0);*/
+
+}
+QPushButton{
+	/*background-color: rgb(170, 255, 127);*/
+	
+	font: 16pt &quot;Microsoft Sans Serif&quot;;
+	
+	background-color: rgb(239, 239, 119);
+}
+QCheckBox{
+font: 12pt &quot;Microsoft Sans Serif&quot;;
+	color: rgb(255, 85, 0);
+}</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QTableView" name="process_tableView2">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>490</y>
+      <width>1240</width>
+      <height>271</height>
+     </rect>
+    </property>
+    <property name="alternatingRowColors">
+     <bool>true</bool>
+    </property>
+    <property name="selectionMode">
+     <enum>QAbstractItemView::SingleSelection</enum>
+    </property>
+    <property name="selectionBehavior">
+     <enum>QAbstractItemView::SelectRows</enum>
+    </property>
+   </widget>
+   <widget class="QTableView" name="open_tableView1">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>54</y>
+      <width>1241</width>
+      <height>111</height>
+     </rect>
+    </property>
+    <property name="alternatingRowColors">
+     <bool>true</bool>
+    </property>
+    <property name="selectionMode">
+     <enum>QAbstractItemView::SingleSelection</enum>
+    </property>
+    <property name="selectionBehavior">
+     <enum>QAbstractItemView::SelectRows</enum>
+    </property>
+    <attribute name="horizontalHeaderCascadingSectionResizes">
+     <bool>false</bool>
+    </attribute>
+    <attribute name="horizontalHeaderDefaultSectionSize">
+     <number>50</number>
+    </attribute>
+    <attribute name="horizontalHeaderStretchLastSection">
+     <bool>true</bool>
+    </attribute>
+   </widget>
+   <widget class="QFrame" name="frame_act_size">
+    <property name="geometry">
+     <rect>
+      <x>430</x>
+      <y>298</y>
+      <width>431</width>
+      <height>121</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QLineEdit" name="lineEdit_r3c3">
+     <property name="enabled">
+      <bool>true</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>110</x>
+       <y>70</y>
+       <width>81</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_15">
+     <property name="geometry">
+      <rect>
+       <x>13</x>
+       <y>75</y>
+       <width>91</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>水平位置</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="lineEdit_r2c3">
+     <property name="enabled">
+      <bool>true</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>110</x>
+       <y>15</y>
+       <width>81</width>
+       <height>31</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_14">
+     <property name="geometry">
+      <rect>
+       <x>13</x>
+       <y>20</y>
+       <width>91</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>實際成品寬</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_16">
+     <property name="geometry">
+      <rect>
+       <x>240</x>
+       <y>70</y>
+       <width>91</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>垂直位置</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="lineEdit_r2c4">
+     <property name="enabled">
+      <bool>true</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>330</x>
+       <y>15</y>
+       <width>61</width>
+       <height>31</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="lineEdit_r3c4">
+     <property name="enabled">
+      <bool>true</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>330</x>
+       <y>70</y>
+       <width>61</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_13">
+     <property name="geometry">
+      <rect>
+       <x>240</x>
+       <y>15</y>
+       <width>91</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>實際成品高</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QFrame" name="frame_bleeding">
+    <property name="geometry">
+     <rect>
+      <x>430</x>
+      <y>248</y>
+      <width>661</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="toolTip">
+     <string>出血位</string>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QLineEdit" name="lineEdit_r1c6">
+     <property name="geometry">
+      <rect>
+       <x>570</x>
+       <y>4</y>
+       <width>61</width>
+       <height>31</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_18">
+     <property name="geometry">
+      <rect>
+       <x>500</x>
+       <y>4</y>
+       <width>81</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>下邊增減</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="lineEdit_r1c5">
+     <property name="geometry">
+      <rect>
+       <x>420</x>
+       <y>4</y>
+       <width>61</width>
+       <height>31</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_17">
+     <property name="geometry">
+      <rect>
+       <x>351</x>
+       <y>3</y>
+       <width>81</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>右邊增減</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_7">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>81</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>左右出血位(寸)</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="lineEdit_r1c3">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>90</x>
+       <y>4</y>
+       <width>61</width>
+       <height>31</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_8">
+     <property name="geometry">
+      <rect>
+       <x>160</x>
+       <y>1</y>
+       <width>81</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>上下出血位(寸)</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="lineEdit_r1c4">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>251</x>
+       <y>4</y>
+       <width>61</width>
+       <height>31</height>
+      </rect>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QFrame" name="frame">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>248</y>
+      <width>391</width>
+      <height>181</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QLineEdit" name="lineEdit_r3c2">
+     <property name="geometry">
+      <rect>
+       <x>280</x>
+       <y>130</y>
+       <width>61</width>
+       <height>31</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_5">
+     <property name="geometry">
+      <rect>
+       <x>1</x>
+       <y>10</y>
+       <width>64</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>橫排個數</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="lineEdit_r2c2">
+     <property name="geometry">
+      <rect>
+       <x>250</x>
+       <y>70</y>
+       <width>61</width>
+       <height>31</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_9">
+     <property name="geometry">
+      <rect>
+       <x>169</x>
+       <y>70</y>
+       <width>81</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>豎刀位(寸)</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_11">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>130</y>
+       <width>81</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>一箱張數</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_6">
+     <property name="geometry">
+      <rect>
+       <x>168</x>
+       <y>12</y>
+       <width>74</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>橫刀位(寸)</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_12">
+     <property name="geometry">
+      <rect>
+       <x>180</x>
+       <y>130</y>
+       <width>81</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>PDF檔頁數</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="lineEdit_r1c1">
+     <property name="geometry">
+      <rect>
+       <x>71</x>
+       <y>9</y>
+       <width>60</width>
+       <height>31</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="lineEdit_r3c1">
+     <property name="geometry">
+      <rect>
+       <x>90</x>
+       <y>130</y>
+       <width>61</width>
+       <height>31</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="lineEdit_r1c2">
+     <property name="geometry">
+      <rect>
+       <x>250</x>
+       <y>12</y>
+       <width>60</width>
+       <height>30</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_10">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>70</y>
+       <width>81</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>豎排個數</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="lineEdit_r2c1">
+     <property name="geometry">
+      <rect>
+       <x>80</x>
+       <y>70</y>
+       <width>61</width>
+       <height>31</height>
+      </rect>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QFrame" name="frame_2">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>198</y>
+      <width>1251</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QComboBox" name="comboBox_rotate">
+     <property name="geometry">
+      <rect>
+       <x>840</x>
+       <y>10</y>
+       <width>61</width>
+       <height>26</height>
+      </rect>
+     </property>
+     <property name="currentIndex">
+      <number>0</number>
+     </property>
+     <item>
+      <property name="text">
+       <string extracomment="a">0</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string extracomment="b">90</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string extracomment="c">180</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>270</string>
+      </property>
+     </item>
+    </widget>
+    <widget class="QComboBox" name="comboBox1">
+     <property name="geometry">
+      <rect>
+       <x>81</x>
+       <y>10</y>
+       <width>135</width>
+       <height>26</height>
+      </rect>
+     </property>
+     <property name="currentIndex">
+      <number>0</number>
+     </property>
+     <item>
+      <property name="text">
+       <string extracomment="a">1:從小到大</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string extracomment="b">2:從大到小</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string extracomment="c">3:兜圈順序打印</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>4:分切成品-順序</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>5:分切成品-倒序</string>
+      </property>
+     </item>
+    </widget>
+    <widget class="QLabel" name="label_2">
+     <property name="geometry">
+      <rect>
+       <x>11</x>
+       <y>10</y>
+       <width>64</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>編號次序</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_3">
+     <property name="geometry">
+      <rect>
+       <x>230</x>
+       <y>10</y>
+       <width>111</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="autoFillBackground">
+      <bool>false</bool>
+     </property>
+     <property name="text">
+      <string>PDF輸出方向</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_4">
+     <property name="geometry">
+      <rect>
+       <x>460</x>
+       <y>10</y>
+       <width>141</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>出血位及顯示位置</string>
+     </property>
+    </widget>
+    <widget class="QCheckBox" name="checkBox1">
+     <property name="geometry">
+      <rect>
+       <x>930</x>
+       <y>11</y>
+       <width>87</width>
+       <height>24</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Microsoft Sans Serif</family>
+       <pointsize>12</pointsize>
+       <weight>50</weight>
+       <italic>false</italic>
+       <bold>false</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>雙面打印</string>
+     </property>
+     <property name="checked">
+      <bool>false</bool>
+     </property>
+    </widget>
+    <widget class="QComboBox" name="comboBox3">
+     <property name="geometry">
+      <rect>
+       <x>600</x>
+       <y>10</y>
+       <width>151</width>
+       <height>26</height>
+      </rect>
+     </property>
+     <property name="currentIndex">
+      <number>0</number>
+     </property>
+     <item>
+      <property name="text">
+       <string extracomment="a">0:排版後無出血位</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string extracomment="b">1:左上角水平位置</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>2:左上角垂直位置</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>3:右上角水平位置</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>4:右上角垂直位置</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>5:左下角水平位置</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>6:左下角垂直位置</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>7:右下角水平位置</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>8:右下角垂直位置</string>
+      </property>
+     </item>
+    </widget>
+    <widget class="QCheckBox" name="checkBox_blank2">
+     <property name="geometry">
+      <rect>
+       <x>1107</x>
+       <y>10</y>
+       <width>141</width>
+       <height>24</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Microsoft Sans Serif</family>
+       <pointsize>12</pointsize>
+       <weight>50</weight>
+       <italic>false</italic>
+       <bold>false</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>單面加稿件底頁</string>
+     </property>
+     <property name="checked">
+      <bool>false</bool>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_19">
+     <property name="geometry">
+      <rect>
+       <x>770</x>
+       <y>10</y>
+       <width>64</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>PDF角度</string>
+     </property>
+    </widget>
+    <widget class="QComboBox" name="comboBox2">
+     <property name="geometry">
+      <rect>
+       <x>337</x>
+       <y>10</y>
+       <width>103</width>
+       <height>26</height>
+      </rect>
+     </property>
+     <property name="currentIndex">
+      <number>0</number>
+     </property>
+     <item>
+      <property name="text">
+       <string extracomment="a">1:从左到右</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string extracomment="b">2:从上到下</string>
+      </property>
+     </item>
+    </widget>
+    <widget class="QCheckBox" name="checkBox_blank">
+     <property name="geometry">
+      <rect>
+       <x>1027</x>
+       <y>10</y>
+       <width>87</width>
+       <height>24</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Microsoft Sans Serif</family>
+       <pointsize>12</pointsize>
+       <weight>50</weight>
+       <italic>false</italic>
+       <bold>false</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>加隔紙</string>
+     </property>
+     <property name="checked">
+      <bool>false</bool>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QFrame" name="frame_3">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>428</y>
+      <width>1231</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QProgressBar" name="progressBar">
+     <property name="geometry">
+      <rect>
+       <x>422</x>
+       <y>10</y>
+       <width>771</width>
+       <height>40</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Arial</family>
+       <pointsize>12</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+       <kerning>true</kerning>
+      </font>
+     </property>
+     <property name="layoutDirection">
+      <enum>Qt::RightToLeft</enum>
+     </property>
+     <property name="locale">
+      <locale language="English" country="UnitedStates"/>
+     </property>
+     <property name="value">
+      <number>0</number>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="process_pushButton3">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>229</x>
+       <y>5</y>
+       <width>151</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>處理</string>
+     </property>
+     <property name="icon">
+      <iconset resource="resourcefile.qrc">
+       <normaloff>:/ico_file/sourcefile/run.png</normaloff>:/ico_file/sourcefile/run.png</iconset>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="add_pushButton2">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>6</y>
+       <width>161</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>添加</string>
+     </property>
+     <property name="icon">
+      <iconset resource="resourcefile.qrc">
+       <normaloff>:/ico_file/sourcefile/add2.png</normaloff>:/ico_file/sourcefile/add2.png</iconset>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QFrame" name="frame_5">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>1</y>
+      <width>1251</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QLabel" name="label_art">
+     <property name="geometry">
+      <rect>
+       <x>760</x>
+       <y>16</y>
+       <width>511</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>no_art</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="open_pushButton1">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>4</y>
+       <width>221</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="font">
+      <font>
+       <family>Microsoft Sans Serif</family>
+       <pointsize>16</pointsize>
+       <weight>50</weight>
+       <italic>false</italic>
+       <bold>false</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>打開需排版PDF檔</string>
+     </property>
+     <property name="icon">
+      <iconset>
+       <normaloff>C:/Users/ITProg02/.designer/backup/sourcefile/open2.png</normaloff>C:/Users/ITProg02/.designer/backup/sourcefile/open2.png</iconset>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="open_pushButton_folder">
+     <property name="geometry">
+      <rect>
+       <x>270</x>
+       <y>5</y>
+       <width>221</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="font">
+      <font>
+       <family>Microsoft Sans Serif</family>
+       <pointsize>16</pointsize>
+       <weight>50</weight>
+       <italic>false</italic>
+       <bold>false</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(85, 170, 255);</string>
+     </property>
+     <property name="text">
+      <string>打開需排版文件夾</string>
+     </property>
+     <property name="icon">
+      <iconset>
+       <normaloff>C:/Users/ITProg02/.designer/backup/sourcefile/open2.png</normaloff>C:/Users/ITProg02/.designer/backup/sourcefile/open2.png</iconset>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="open_pushButton_art">
+     <property name="geometry">
+      <rect>
+       <x>530</x>
+       <y>4</y>
+       <width>221</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="font">
+      <font>
+       <family>Microsoft Sans Serif</family>
+       <pointsize>16</pointsize>
+       <weight>50</weight>
+       <italic>false</italic>
+       <bold>false</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(115, 170, 130);</string>
+     </property>
+     <property name="text">
+      <string>打開排版PDF稿件</string>
+     </property>
+     <property name="icon">
+      <iconset>
+       <normaloff>C:/Users/ITProg02/.designer/backup/sourcefile/open2.png</normaloff>C:/Users/ITProg02/.designer/backup/sourcefile/open2.png</iconset>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QCheckBox" name="checkBox_addpage">
+    <property name="geometry">
+     <rect>
+      <x>1120</x>
+      <y>238</y>
+      <width>87</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Microsoft Sans Serif</family>
+      <pointsize>12</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>加頁碼</string>
+    </property>
+    <property name="checked">
+     <bool>false</bool>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="lineEdit_Repeat">
+    <property name="geometry">
+     <rect>
+      <x>1190</x>
+      <y>304</y>
+      <width>60</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>1</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_20">
+    <property name="geometry">
+     <rect>
+      <x>1110</x>
+      <y>308</y>
+      <width>74</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>重復數量</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="lineEdit_StartSeq">
+    <property name="geometry">
+     <rect>
+      <x>1170</x>
+      <y>338</y>
+      <width>80</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>1</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>1096</x>
+      <y>342</y>
+      <width>81</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>開始編號</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_21">
+    <property name="geometry">
+     <rect>
+      <x>1040</x>
+      <y>383</y>
+      <width>131</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>色塊位置增減(寸)</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="lineEdit_ColorBlockPosition">
+    <property name="geometry">
+     <rect>
+      <x>1170</x>
+      <y>379</y>
+      <width>80</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>0</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="checkBox_addSample">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>1120</x>
+      <y>268</y>
+      <width>121</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Microsoft Sans Serif</family>
+      <pointsize>12</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>增加大貨樣板</string>
+    </property>
+    <property name="checked">
+     <bool>false</bool>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="lineEdit_ERP_Mark">
+    <property name="geometry">
+     <rect>
+      <x>130</x>
+      <y>170</y>
+      <width>1121</width>
+      <height>31</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_22">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>170</y>
+      <width>111</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>ERP 備注信息</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1259</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>14</pointsize>
+    </font>
+   </property>
+   <widget class="QMenu" name="menu">
+    <property name="font">
+     <font>
+      <pointsize>14</pointsize>
+      <stylestrategy>PreferDefault</stylestrategy>
+      <kerning>true</kerning>
+     </font>
+    </property>
+    <property name="contextMenuPolicy">
+     <enum>Qt::DefaultContextMenu</enum>
+    </property>
+    <property name="toolTip">
+     <string/>
+    </property>
+    <property name="whatsThis">
+     <string/>
+    </property>
+    <property name="title">
+     <string extracomment="功能選項">功能選項</string>
+    </property>
+    <addaction name="action1"/>
+    <addaction name="action2"/>
+    <addaction name="action22"/>
+    <addaction name="action_dele"/>
+   </widget>
+   <widget class="QMenu" name="menu_2">
+    <property name="title">
+     <string>系統</string>
+    </property>
+    <addaction name="action_quit"/>
+   </widget>
+   <addaction name="menu"/>
+   <addaction name="menu_2"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="action1">
+   <property name="icon">
+    <iconset resource="resourcefile.qrc">
+     <normaloff>:/ico_file/sourcefile/favicon.ico</normaloff>:/ico_file/sourcefile/favicon.ico</iconset>
+   </property>
+   <property name="text">
+    <string>修改PDF成品大小及位置</string>
+   </property>
+   <property name="font">
+    <font>
+     <family>Microsoft Sans Serif</family>
+     <pointsize>14</pointsize>
+    </font>
+   </property>
+  </action>
+  <action name="action22">
+   <property name="icon">
+    <iconset resource="resourcefile.qrc">
+     <normaloff>:/ico_file/sourcefile/save.png</normaloff>:/ico_file/sourcefile/save.png</iconset>
+   </property>
+   <property name="text">
+    <string>修改輸出PDF路徑</string>
+   </property>
+  </action>
+  <action name="action2">
+   <property name="icon">
+    <iconset resource="resourcefile.qrc">
+     <normaloff>:/ico_file/sourcefile/8923926.png</normaloff>:/ico_file/sourcefile/8923926.png</iconset>
+   </property>
+   <property name="text">
+    <string>修改右邊和下邊出血位</string>
+   </property>
+   <property name="iconText">
+    <string>修改右邊和下邊出血位</string>
+   </property>
+  </action>
+  <action name="action_quit">
+   <property name="text">
+    <string>退出</string>
+   </property>
+  </action>
+  <action name="action_dele">
+   <property name="text">
+    <string>刪除行</string>
+   </property>
+  </action>
+  <action name="PDFart">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>PDF稿件只有一面</string>
+   </property>
+  </action>
+ </widget>
+ <resources>
+  <include location="resourcefile.qrc"/>
+ </resources>
+ <connections/>
+</ui>

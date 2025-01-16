@@ -1,0 +1,745 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1354</width>
+    <height>833</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Honour PDF合并|分拆|插入|裁剪</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QGridLayout" name="gridLayout_7" columnstretch="3,7" columnminimumwidth="3,7">
+    <item row="0" column="0">
+     <layout class="QVBoxLayout" name="verticalLayout">
+      <item>
+       <layout class="QVBoxLayout" name="verticalLayout_2">
+        <item>
+         <widget class="QFrame" name="frame_Open">
+          <property name="frameShape">
+           <enum>QFrame::StyledPanel</enum>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Raised</enum>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_3">
+           <item row="0" column="0">
+            <widget class="QPushButton" name="pushButton4">
+             <property name="font">
+              <font>
+               <pointsize>16</pointsize>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">color: rgb(255, 0, 255);</string>
+             </property>
+             <property name="text">
+              <string>打開PDF檔</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="0">
+            <widget class="QListView" name="listView"/>
+           </item>
+          </layout>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QGridLayout" name="gridLayout_6">
+        <item row="0" column="0" rowspan="3" colspan="4">
+         <widget class="QFrame" name="frame_cropbox">
+          <property name="frameShape">
+           <enum>QFrame::StyledPanel</enum>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Raised</enum>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_5">
+           <item row="1" column="0" colspan="2">
+            <widget class="QPushButton" name="pushButton_cropbox">
+             <property name="styleSheet">
+              <string notr="true">font: 25 16pt &quot;Adobe Ming Std&quot;;
+color: rgb(255, 85, 255);</string>
+             </property>
+             <property name="text">
+              <string>裁剪PDF</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="1">
+            <widget class="QLineEdit" name="lineEdit_cropbox">
+             <property name="toolTip">
+              <string>單位是厘米(CM), 坐標用逗號分隔. 前兩個坐標是裁剪左上角坐標位置. 后兩個是裁剪右下角坐標位置.</string>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">font: 25 11pt &quot;Adobe Ming Std&quot;;
+color: rgb(255, 85, 255);</string>
+             </property>
+             <property name="text">
+              <string>0.1,0.1,0.1,0.1</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="0">
+            <widget class="QLabel" name="label_cropbox">
+             <property name="styleSheet">
+              <string notr="true">color: rgb(255, 85, 255);
+font: 25 11pt &quot;Adobe Ming Std&quot;;</string>
+             </property>
+             <property name="text">
+              <string>裁剪坐標</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item row="1" column="1" rowspan="3" colspan="3">
+         <widget class="QFrame" name="frame_insert">
+          <property name="frameShape">
+           <enum>QFrame::StyledPanel</enum>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Raised</enum>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_2">
+           <item row="2" column="0">
+            <widget class="QLabel" name="label_3">
+             <property name="text">
+              <string>插入內容</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="0">
+            <widget class="QLabel" name="label">
+             <property name="text">
+              <string>位置坐標(像素)</string>
+             </property>
+            </widget>
+           </item>
+           <item row="4" column="0" colspan="2">
+            <widget class="QLabel" name="label_2">
+             <property name="text">
+              <string>頁碼範圍 (不輸入表示全部)</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="1">
+            <widget class="QLineEdit" name="lineEdit_Point">
+             <property name="toolTip">
+              <string extracomment="坐標位置是像素"/>
+             </property>
+             <property name="text">
+              <string>10,20,50,50</string>
+             </property>
+            </widget>
+           </item>
+           <item row="5" column="0" colspan="2">
+            <widget class="QTextEdit" name="textEdit_PageNumber"/>
+           </item>
+           <item row="3" column="0" colspan="2">
+            <widget class="QTextEdit" name="textEdit_InertContent">
+             <property name="toolTip">
+              <string extracomment="圖像與文字不能同時插入, 要分開處理."/>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="0" colspan="2">
+            <widget class="QPushButton" name="pushButton_insert">
+             <property name="font">
+              <font>
+               <pointsize>16</pointsize>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">color: rgb(0, 0, 255);</string>
+             </property>
+             <property name="text">
+              <string>處理插入PDF檔</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item row="2" column="2" rowspan="2" colspan="2">
+         <widget class="QFrame" name="frame_merge_Split">
+          <property name="frameShape">
+           <enum>QFrame::StyledPanel</enum>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Raised</enum>
+          </property>
+          <layout class="QGridLayout" name="gridLayout">
+           <item row="2" column="0">
+            <widget class="QRadioButton" name="radioButton">
+             <property name="text">
+              <string>拆單個</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="0" colspan="3">
+            <widget class="QPushButton" name="pushButton2">
+             <property name="font">
+              <font>
+               <pointsize>14</pointsize>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">color: rgb(0, 0, 255);</string>
+             </property>
+             <property name="text">
+              <string>拆分 | 抽取 PDF檔</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="1">
+            <widget class="QRadioButton" name="radioButton_2">
+             <property name="text">
+              <string>按頁數拆</string>
+             </property>
+            </widget>
+           </item>
+           <item row="4" column="0" colspan="3">
+            <widget class="QTextEdit" name="textEdit">
+             <property name="toolTip">
+              <string>test</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="2">
+            <widget class="QLineEdit" name="lineEdit"/>
+           </item>
+           <item row="3" column="0" colspan="2">
+            <widget class="QRadioButton" name="radioButton_3">
+             <property name="text">
+              <string>按頁碼抽</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="0" colspan="3">
+            <widget class="QPushButton" name="pushButton1">
+             <property name="font">
+              <font>
+               <pointsize>14</pointsize>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">color: rgb(0, 170, 0);</string>
+             </property>
+             <property name="text">
+              <string>合并PDF檔</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item row="3" column="3">
+         <widget class="QFrame" name="frame_Extract_images">
+          <property name="frameShape">
+           <enum>QFrame::StyledPanel</enum>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Raised</enum>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_4">
+           <property name="leftMargin">
+            <number>5</number>
+           </property>
+           <property name="topMargin">
+            <number>5</number>
+           </property>
+           <property name="rightMargin">
+            <number>5</number>
+           </property>
+           <property name="bottomMargin">
+            <number>5</number>
+           </property>
+           <property name="spacing">
+            <number>5</number>
+           </property>
+           <item row="0" column="0">
+            <widget class="QPushButton" name="pushButton_Extract_images">
+             <property name="font">
+              <font>
+               <pointsize>12</pointsize>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">color: rgb(0, 170, 0);</string>
+             </property>
+             <property name="text">
+              <string>PDF提取圖像</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="0">
+            <widget class="QLabel" name="label_4">
+             <property name="text">
+              <string>頁碼範圍(不輸入表示全部)</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="0">
+            <widget class="QTextEdit" name="textEdit_Extract_PageNumber"/>
+           </item>
+          </layout>
+         </widget>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </item>
+    <item row="0" column="1">
+     <layout class="QHBoxLayout" name="horizontalLayout"/>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1354</width>
+     <height>32</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>16</pointsize>
+    </font>
+   </property>
+   <widget class="QMenu" name="menu">
+    <property name="font">
+     <font>
+      <pointsize>14</pointsize>
+     </font>
+    </property>
+    <property name="title">
+     <string>功能</string>
+    </property>
+    <widget class="QMenu" name="menu_2">
+     <property name="font">
+      <font>
+       <family>Arial</family>
+       <pointsize>9</pointsize>
+       <weight>50</weight>
+       <italic>false</italic>
+       <bold>false</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true"/>
+     </property>
+     <property name="title">
+      <string>旋轉</string>
+     </property>
+     <addaction name="action0"/>
+     <addaction name="action90"/>
+     <addaction name="action180"/>
+     <addaction name="action270"/>
+    </widget>
+    <widget class="QMenu" name="menu_5">
+     <property name="title">
+      <string>選擇顏色</string>
+     </property>
+     <addaction name="action_BLACK"/>
+     <addaction name="action_RED"/>
+     <addaction name="action_MAGENTA"/>
+     <addaction name="action_ORANGERED"/>
+     <addaction name="action_ORANGE"/>
+     <addaction name="action_YELLOW"/>
+     <addaction name="action_GREEN"/>
+     <addaction name="action_BLUE"/>
+     <addaction name="action_PURPLE"/>
+     <addaction name="action_BROWN"/>
+     <addaction name="action_GRAY"/>
+     <addaction name="action_WHITE"/>
+    </widget>
+    <addaction name="menu_2"/>
+    <addaction name="menu_5"/>
+    <addaction name="action_repeat"/>
+    <addaction name="action_show_imagesXY"/>
+    <addaction name="action_add_background"/>
+   </widget>
+   <widget class="QMenu" name="menu_3">
+    <property name="title">
+     <string>配置</string>
+    </property>
+    <widget class="QMenu" name="menua1">
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
+     <property name="title">
+      <string>角度設置</string>
+     </property>
+     <addaction name="Standard_user"/>
+     <addaction name="Accounting_user"/>
+    </widget>
+    <addaction name="menua1"/>
+    <addaction name="separator"/>
+    <addaction name="actiona_2"/>
+    <addaction name="actionb_2"/>
+    <addaction name="action_Extract_images"/>
+    <addaction name="action_cropbox"/>
+   </widget>
+   <widget class="QMenu" name="menu_4">
+    <property name="title">
+     <string>插入</string>
+    </property>
+    <widget class="QMenu" name="menua">
+     <property name="geometry">
+      <rect>
+       <x>2376</x>
+       <y>139</y>
+       <width>165</width>
+       <height>168</height>
+      </rect>
+     </property>
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="font">
+      <font>
+       <family>Adobe Ming Std</family>
+       <pointsize>16</pointsize>
+       <weight>50</weight>
+       <italic>false</italic>
+       <bold>false</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true"/>
+     </property>
+     <property name="title">
+      <string>插入可變內容</string>
+     </property>
+     <addaction name="action_PageNumber"/>
+     <addaction name="action_TotalPage"/>
+     <addaction name="action_Date"/>
+     <addaction name="action_Time"/>
+     <addaction name="action_FileName"/>
+    </widget>
+    <addaction name="menua"/>
+    <addaction name="action_InsertImage"/>
+   </widget>
+   <addaction name="menu"/>
+   <addaction name="menu_4"/>
+   <addaction name="menu_3"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="action90">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>90</string>
+   </property>
+  </action>
+  <action name="action180">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>180</string>
+   </property>
+  </action>
+  <action name="action270">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>270</string>
+   </property>
+  </action>
+  <action name="actiona2">
+   <property name="text">
+    <string>a2</string>
+   </property>
+  </action>
+  <action name="Standard_user">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>標準用戶</string>
+   </property>
+  </action>
+  <action name="Accounting_user">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>特別用戶1</string>
+   </property>
+  </action>
+  <action name="action_PageNumber">
+   <property name="text">
+    <string>頁碼</string>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+  </action>
+  <action name="action_TotalPage">
+   <property name="text">
+    <string>總頁數</string>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+  </action>
+  <action name="action_Date">
+   <property name="text">
+    <string>當前日期</string>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+  </action>
+  <action name="action_Time">
+   <property name="text">
+    <string>當前時間</string>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+  </action>
+  <action name="action_FileName">
+   <property name="text">
+    <string>檔案名</string>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+  </action>
+  <action name="action_InsertImage">
+   <property name="text">
+    <string>插入圖像</string>
+   </property>
+   <property name="font">
+    <font/>
+   </property>
+  </action>
+  <action name="action_selectFont">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>選擇字體</string>
+   </property>
+   <property name="font">
+    <font/>
+   </property>
+  </action>
+  <action name="action0">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>0</string>
+   </property>
+  </action>
+  <action name="actiona_2">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>合并|拆分界面</string>
+   </property>
+  </action>
+  <action name="actionb_2">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>插入界面</string>
+   </property>
+  </action>
+  <action name="actiontest">
+   <property name="text">
+    <string>test</string>
+   </property>
+  </action>
+  <action name="action_selectcolor">
+   <property name="text">
+    <string>選擇顏色</string>
+   </property>
+  </action>
+  <action name="action_selectFont_2">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>選擇字體</string>
+   </property>
+  </action>
+  <action name="action_BLACK">
+   <property name="checkable">
+    <bool>false</bool>
+   </property>
+   <property name="checked">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>黑色</string>
+   </property>
+   <property name="toolTip">
+    <string>BLACK</string>
+   </property>
+  </action>
+  <action name="action_RED">
+   <property name="text">
+    <string>紅色</string>
+   </property>
+   <property name="toolTip">
+    <string>RED</string>
+   </property>
+  </action>
+  <action name="action_MAGENTA">
+   <property name="text">
+    <string>洋紅</string>
+   </property>
+   <property name="toolTip">
+    <string>MAGENTA</string>
+   </property>
+  </action>
+  <action name="action_ORANGERED">
+   <property name="text">
+    <string>橙紅</string>
+   </property>
+   <property name="toolTip">
+    <string>ORANGERED</string>
+   </property>
+  </action>
+  <action name="action_ORANGE">
+   <property name="text">
+    <string>橙色</string>
+   </property>
+   <property name="toolTip">
+    <string>ORANGE</string>
+   </property>
+  </action>
+  <action name="action_YELLOW">
+   <property name="text">
+    <string>黃色</string>
+   </property>
+   <property name="toolTip">
+    <string>YELLOW</string>
+   </property>
+  </action>
+  <action name="action_GREEN">
+   <property name="text">
+    <string>綠色</string>
+   </property>
+   <property name="toolTip">
+    <string>GREEN</string>
+   </property>
+  </action>
+  <action name="action_BLUE">
+   <property name="text">
+    <string>藍色</string>
+   </property>
+   <property name="toolTip">
+    <string>BLUE</string>
+   </property>
+  </action>
+  <action name="action_PURPLE">
+   <property name="text">
+    <string>紫色</string>
+   </property>
+   <property name="toolTip">
+    <string>PURPLE</string>
+   </property>
+  </action>
+  <action name="action_BROWN">
+   <property name="text">
+    <string>棕色</string>
+   </property>
+   <property name="toolTip">
+    <string>BROWN</string>
+   </property>
+  </action>
+  <action name="action_GRAY">
+   <property name="text">
+    <string>灰色</string>
+   </property>
+   <property name="toolTip">
+    <string>GRAY</string>
+   </property>
+  </action>
+  <action name="action_WHITE">
+   <property name="text">
+    <string>白色</string>
+   </property>
+   <property name="toolTip">
+    <string>WHITE</string>
+   </property>
+  </action>
+  <action name="action_repeat">
+   <property name="text">
+    <string>重復數</string>
+   </property>
+  </action>
+  <action name="action_show_imagesXY">
+   <property name="text">
+    <string>顯示圖像坐標</string>
+   </property>
+  </action>
+  <action name="action_Extract_images">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>提取圖像</string>
+   </property>
+  </action>
+  <action name="action_cropbox">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>裁剪界面</string>
+   </property>
+  </action>
+  <action name="action_add_background">
+   <property name="text">
+    <string>添加背景及處理</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1260</width>
+    <height>796</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Honour 鋪數錄入</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="resourcefile.qrc">
+    <normaloff>:/ico_file/sourcefile/bs.ico</normaloff>:/ico_file/sourcefile/bs.ico</iconset>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QLabel{
+	color: rgb(0, 0, 127);
+	font: 12pt &quot;Microsoft Sans Serif&quot;;
+}
+QComboBox{
+	font: 12pt &quot;Microsoft Sans Serif&quot;;
+}
+QLineEdit{
+font: 12pt &quot;Microsoft Sans Serif&quot;;
+}
+QTableView{
+	border-color: rgb(0, 85, 0);
+	
+	alternate-background-color: rgb(230, 201, 255);
+	background-color: rgb(199, 205, 255);
+/*	selection-background-color: rgb(85, 255, 0);*/
+
+}
+
+
+QCheckBox{
+font: 12pt &quot;Microsoft Sans Serif&quot;;
+	color: rgb(255, 85, 0);
+}</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QGridLayout" name="gridLayout_2">
+    <item row="0" column="0">
+     <layout class="QVBoxLayout" name="verticalLayout" stretch="2,6">
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout" stretch="2,2,6">
+        <item>
+         <layout class="QGridLayout" name="gridLayout">
+          <item row="0" column="0" colspan="2">
+           <widget class="QPushButton" name="pushButton_scan">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="font">
+             <font>
+              <family>Microsoft Sans Serif</family>
+              <pointsize>16</pointsize>
+              <weight>50</weight>
+              <italic>false</italic>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string>檢查補數資料</string>
+            </property>
+            <property name="icon">
+             <iconset resource="resourcefile.qrc">
+              <normaloff>:/ico_file/sourcefile/Refresh.ico</normaloff>:/ico_file/sourcefile/Refresh.ico</iconset>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QLabel" name="label_2">
+            <property name="text">
+             <string>一箱數量</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1">
+           <widget class="QLineEdit" name="lineEdit">
+            <property name="text">
+             <string>0</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="0">
+           <widget class="QLabel" name="label_3">
+            <property name="text">
+             <string>排版個數</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="1">
+           <widget class="QLineEdit" name="lineEdit_2">
+            <property name="text">
+             <string>0</string>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="0">
+           <widget class="QPushButton" name="pushButton_process">
+            <property name="enabled">
+             <bool>true</bool>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">font: 75 16pt &quot;Arial&quot;;
+</string>
+            </property>
+            <property name="text">
+             <string>處理</string>
+            </property>
+            <property name="icon">
+             <iconset resource="resourcefile.qrc">
+              <normaloff>:/ico_file/sourcefile/run.png</normaloff>:/ico_file/sourcefile/run.png</iconset>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="1">
+           <widget class="QLabel" name="label">
+            <property name="font">
+             <font>
+              <family>Arial</family>
+              <pointsize>16</pointsize>
+              <weight>50</weight>
+              <italic>false</italic>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">font: 16pt &quot;Arial&quot;;</string>
+            </property>
+            <property name="text">
+             <string>狀態:</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="QTextEdit" name="textEdit_joblist">
+          <property name="font">
+           <font>
+            <family>Adobe Ming Std</family>
+            <pointsize>16</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">color: rgb(255, 0, 255);</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QTextEdit" name="textEdit_Log">
+          <property name="font">
+           <font>
+            <family>Adobe Ming Std</family>
+            <pointsize>12</pointsize>
+           </font>
+          </property>
+          <property name="toolTip">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:16pt; font-weight:600; color:#ff00ff;&quot;&gt;檢查報告!&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">color: rgb(0, 0, 255);</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <widget class="QTableView" name="tableView_data">
+        <property name="alternatingRowColors">
+         <bool>true</bool>
+        </property>
+        <property name="selectionMode">
+         <enum>QAbstractItemView::SingleSelection</enum>
+        </property>
+        <property name="selectionBehavior">
+         <enum>QAbstractItemView::SelectRows</enum>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1260</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>14</pointsize>
+    </font>
+   </property>
+   <widget class="QMenu" name="menu">
+    <property name="font">
+     <font>
+      <pointsize>14</pointsize>
+      <stylestrategy>PreferDefault</stylestrategy>
+      <kerning>true</kerning>
+     </font>
+    </property>
+    <property name="contextMenuPolicy">
+     <enum>Qt::DefaultContextMenu</enum>
+    </property>
+    <property name="toolTip">
+     <string/>
+    </property>
+    <property name="whatsThis">
+     <string/>
+    </property>
+    <property name="title">
+     <string extracomment="功能選項">配置</string>
+    </property>
+   </widget>
+   <addaction name="menu"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="action_importxls">
+   <property name="icon">
+    <iconset>
+     <normaloff>:/ico_file/sourcefile/favicon.ico</normaloff>:/ico_file/sourcefile/favicon.ico</iconset>
+   </property>
+   <property name="text">
+    <string>匯入補數編號</string>
+   </property>
+   <property name="font">
+    <font>
+     <family>Microsoft Sans Serif</family>
+     <pointsize>14</pointsize>
+    </font>
+   </property>
+  </action>
+  <action name="action_output">
+   <property name="icon">
+    <iconset>
+     <normaloff>:/ico_file/sourcefile/save.png</normaloff>:/ico_file/sourcefile/save.png</iconset>
+   </property>
+   <property name="text">
+    <string>修改輸出PDF路徑</string>
+   </property>
+  </action>
+  <action name="action2">
+   <property name="icon">
+    <iconset>
+     <normaloff>:/ico_file/sourcefile/8923926.png</normaloff>:/ico_file/sourcefile/8923926.png</iconset>
+   </property>
+   <property name="text">
+    <string>修改右邊和下邊出血位</string>
+   </property>
+   <property name="iconText">
+    <string>修改右邊和下邊出血位</string>
+   </property>
+  </action>
+  <action name="action_dele">
+   <property name="text">
+    <string>刪除行</string>
+   </property>
+  </action>
+  <action name="actionscan">
+   <property name="text">
+    <string>掃描路徑</string>
+   </property>
+  </action>
+ </widget>
+ <tabstops>
+  <tabstop>pushButton_scan</tabstop>
+  <tabstop>tableView_data</tabstop>
+ </tabstops>
+ <resources>
+  <include location="resourcefile.qrc"/>
+ </resources>
+ <connections/>
+</ui>
