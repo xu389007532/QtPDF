@@ -1,0 +1,7 @@
+<RCC>
+  <qresource prefix="ico_file">
+    <file>sourcefile/run.png</file>
+    <file>sourcefile/Refresh.ico</file>
+    <file>sourcefile/bs.ico</file>
+  </qresource>
+</RCC>
