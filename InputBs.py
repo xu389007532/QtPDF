@@ -404,14 +404,16 @@ class mainwindow(QMainWindow):
 
             if type(v['开始号码']) == int and not pd.isna(v['结束号码']):
                 qty = v['结束号码'] - v['开始号码'] + 1
-                df_all.loc[k, '數量'] = str(int(qty))
+                # df_all.loc[k, '數量'] = str(int(qty))
+                df_all.loc[k, '數量'] = int(qty)
                 df_all.loc[k, '~结束号码'] = str(int(v['结束号码']))
             elif type(v['开始号码']) == int and pd.isna(v['结束号码']):
                 df_all.loc[k, '數量'] = 1
                 df_all.loc[k, '~结束号码'] = ""
             elif type(v['开始号码']) == str:
                 qty = str(v['开始号码']).count(';') + 1
-                df_all.loc[k, '數量'] = str(int(qty))
+                # df_all.loc[k, '數量'] = str(int(qty))
+                df_all.loc[k, '數量'] = int(qty)
                 df_all.loc[k, '~结束号码'] = ""
         dfpdf = df_all[["工单号", "货号", "辅料名称", "识别码", "开始号码", "~结束号码", "數量", "跟进人"]]
         dfpdffile=os.getcwd()+"/Finish/"+self.config[5]+'_Bs_'+strdatetime+'.PDF'
