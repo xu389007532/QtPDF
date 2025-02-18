@@ -45,7 +45,7 @@ def df_to_pdf(df, PDFile):
     doc = SimpleDocTemplate(pdf_filename)
 
     # Load the "simhei" font
-    pdfmetrics.registerFont(TTFont('simhei', r'C:\Windows\Fonts\msyhl.ttc'))
+    pdfmetrics.registerFont(TTFont('simhei', r'C:\Windows\Fonts\SimSun.ttc'))
 
     # Convert the DataFrame to a list of lists (table data)
     elements = []
