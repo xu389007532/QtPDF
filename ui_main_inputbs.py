@@ -186,7 +186,7 @@ class Ui_MainWindow(object):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "Honour 鋪數錄入"))
         self.pushButton_scan.setText(_translate("MainWindow", "檢查補數資料"))
-        self.label_2.setText(_translate("MainWindow", "一箱數量"))
+        self.label_2.setText(_translate("MainWindow", "一箱張數"))
         self.lineEdit.setText(_translate("MainWindow", "0"))
         self.label_3.setText(_translate("MainWindow", "排版個數"))
         self.lineEdit_2.setText(_translate("MainWindow", "0"))

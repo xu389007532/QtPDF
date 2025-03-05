@@ -1,4 +1,4 @@
-#test211
+#test2
 # import pkgutil
 # Share1 = pkgutil.extend_path(r"C:\Users\ITProg02\AppData\Local\anaconda3\Lib\site-packages, "Share")
 # import sys
@@ -17,7 +17,6 @@ qt_ui_to_py.runMain()
 from PyQt5.QtGui import QStandardItemModel,QStandardItem
 from PyQt5.QtWidgets import QMainWindow, QApplication, QWidget, QFileDialog,QAbstractItemView,QMessageBox
 import os
-import math
 
 import psutil
 
@@ -219,9 +218,8 @@ def Write_lotus(config,strdatetime,cnt,layout):
         doc.id_code = dfv[3]
         doc.remark = dfv[12]
         doc.groupseq = groupseq
-        doc.num1 = seq_list_LN
-        # doc.qty = len(seq_list_LN)
-        doc.qty = seq_list_qty
+        doc.num1 = seq_list
+        doc.qty = len(seq_list)
         doc.bsreason = dfv[9]
 
         # doc.ComputeWithForm(True,True)
@@ -238,9 +236,7 @@ def Write_lotus(config,strdatetime,cnt,layout):
     print('first ',group1)
 
     # strdatetime="20241022134636"
-    row=0
     for dfv in df_sort.values:
-        row=row+1
         if str(dfv[4]).find(';')>=0:
             seq_list=str(dfv[4]).split(';')
             print("1",dfv[4],dfv[5])
@@ -254,30 +250,17 @@ def Write_lotus(config,strdatetime,cnt,layout):
         ####處理按組的補數編號, 例如便條簿start
         if config[3]=='Yes' and cnt>0 and layout>0:
 
-            for times_row, sl in enumerate(seq_list):
+            for sl in seq_list:
                 seq_list_group = []
                 for lay in range(layout):
                     seq_list_group.append(int(sl)+lay*cnt)
-                    seq_list_LN=int(sl) + lay * cnt
-                    seq_list_qty=1
-                    Times=(times_row+1)*10000000
-                    # groupseq=float(row)+float('0.' + str(10000000 + int(seq_list_LN)))
-                    groupseq = float(row) + float('0.' + str(Times + int(seq_list_LN)))
-                    create_doc()
-                # seq_list=seq_list_group
-                # groupseq=sl
-                # print("Group list seq:",seq_list, groupseq)
-                # create_doc()
+                seq_list=seq_list_group
+                groupseq=sl
+                print("Group list seq:",seq_list, groupseq)
+                create_doc()
         else:
-
-            if pd.isna(dfv[7]) or pd.isnull(dfv[7]) or str(dfv[7]).isdigit()==False:
-                groupseq = 0
-            else:
-                groupseq=float(dfv[7])
+            groupseq = 0
             if seq_list:
-
-                seq_list_LN=seq_list
-                seq_list_qty = len(seq_list)
                 create_doc()
 
 
@@ -417,30 +400,22 @@ class mainwindow(QMainWindow):
         Write_lotus(self.config, strdatetime,cnt,layout)
 
         for k, v in df_all.iterrows():
-            # print(v['开始号码'], type(v['开始号码']), v['结束号码'], type(v['结束号码']))
-            # print('一箱數量:',df_all.iloc[k][6])
-            if str(v.iloc[6]).isnumeric():
-                cnt_qty = int(v.iloc[6])
+            print(v['开始号码'], type(v['开始号码']), v['结束号码'], type(v['结束号码']))
 
-            else:
-                cnt_qty = 1
             if type(v['开始号码']) == int and not pd.isna(v['结束号码']):
                 qty = v['结束号码'] - v['开始号码'] + 1
                 # df_all.loc[k, '數量'] = str(int(qty))
                 df_all.loc[k, '數量'] = int(qty)
                 df_all.loc[k, '~结束号码'] = str(int(v['结束号码']))
-                df_all.loc[k, '箱號'] = str(math.ceil(int(v['开始号码'])/cnt_qty)+1)+"-"+str(math.ceil(int(v['结束号码'])/cnt_qty)+1)
             elif type(v['开始号码']) == int and pd.isna(v['结束号码']):
                 df_all.loc[k, '數量'] = 1
                 df_all.loc[k, '~结束号码'] = ""
-                df_all.loc[k, '箱號'] = str(math.ceil(int(v['开始号码']) / cnt_qty) + 1)
             elif type(v['开始号码']) == str:
                 qty = str(v['开始号码']).count(';') + 1
                 # df_all.loc[k, '數量'] = str(int(qty))
                 df_all.loc[k, '數量'] = int(qty)
                 df_all.loc[k, '~结束号码'] = ""
-                df_all.loc[k, '箱號'] = ""
-        dfpdf = df_all[["工单号", "货号", "辅料名称", "识别码", "开始号码", "~结束号码", "箱號", "數量", "跟进人"]]
+        dfpdf = df_all[["工单号", "货号", "辅料名称", "识别码", "开始号码", "~结束号码", "數量", "跟进人"]]
         dfpdffile=os.getcwd()+"/Finish/"+self.config[5]+'_Bs_'+strdatetime+'.PDF'
         if self.config[3] == "Yes":
             df_to_pdf(dfpdf,dfpdffile)
@@ -558,10 +533,10 @@ class mainwindow(QMainWindow):
                     seq_list = [str(seq) for seq in range(int(dfv[4]), int(dfv[5]) + 1)]
                     print("3", dfv[4], dfv[5])
 
-                if pd.isna(dfv[7]) or pd.isnull(dfv[7]) or str(dfv[7]).isdigit()==False:
+                if pd.isna(dfv[6]) or pd.isnull(dfv[6]):
                     groupseq = 0
                 else:
-                    groupseq = float(dfv[7])
+                    groupseq = float(dfv[6])
                 # print("Group:",groupseq)
                 if self.jobver_qty.get(dfv[0]) is not None:
                     max_qty = self.jobver_qty.get(dfv[0])

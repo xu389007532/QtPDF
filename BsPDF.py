@@ -358,10 +358,14 @@ class mainwindow(QMainWindow):
     def read_lotus_LaserRoom(self,BsKey):
         key=BsKey.split("#")
         s = win32com.client.Dispatch('Notes.NotesSession')
+        # print("id:",id(s))
         db = s.GetDatabase(self.Lotus_server, "PublicNSF\\LaserMat.nsf")
         db_bsseq = s.GetDatabase(self.Lotus_server, "PublicNSF\\QM.nsf")
+        #db_bsseq = s.GetDatabase("DG-ShengYi01/SHENGYI", "PublicNSF\\QM.nsf")
+
         view = db.GetView("searchPDFbyjoblot")
         view_bsseq = db_bsseq.GetView("BsSeqBykey3")
+        print("FileName:", view_bsseq.Name)
         dc = view.GetAllDocumentsByKey(key[0], True)
         item =[]
 
@@ -379,7 +383,9 @@ class mainwindow(QMainWindow):
             self.ui.comboBox_PDFitem.addItem(k)
 
         dc_bsseq = view_bsseq.GetAllDocumentsByKey(BsKey, True)
+        # bsseq_count=dc_bsseq.count
         doc_seqcode=dc_bsseq.GetNthDocument(1)
+        # doc_seqcode=view_bsseq.GetDocumentByKey(BsKey, True)
         self.seqcode = str(doc_seqcode.GetItemValue('id_code')[0]).upper().strip()
 
         print("self.seqcode:", self.seqcode)
@@ -392,7 +398,10 @@ class mainwindow(QMainWindow):
             groupseq = doc_bsseq.GetItemValue('groupseq')
             print('Group: ',groupseq)
             # seqlist2=(seq,groupseq[0]+float('0.'+seq[0]))
-            seqlist2 = (seq, groupseq[0] + float('0.' + str(10000000 + int(seq[0]))))
+
+            seqlist2 = (seq, groupseq[0] + float('0.' + str(10000000 + int(seq[0]))))  #這個是之前的
+            #seqlist2 = (seq, groupseq[0])
+
             # seqlist=seqlist+doc_bsseq.GetItemValue('num1')
             seqlist = seqlist + seq
             seqlist1.append(seqlist2)

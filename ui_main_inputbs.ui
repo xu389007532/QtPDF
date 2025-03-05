@@ -80,7 +80,7 @@ font: 12pt &quot;Microsoft Sans Serif&quot;;
           <item row="1" column="0">
            <widget class="QLabel" name="label_2">
             <property name="text">
-             <string>一箱數量</string>
+             <string>一箱張數</string>
             </property>
            </widget>
           </item>

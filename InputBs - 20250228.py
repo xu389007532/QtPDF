@@ -219,9 +219,8 @@ def Write_lotus(config,strdatetime,cnt,layout):
         doc.id_code = dfv[3]
         doc.remark = dfv[12]
         doc.groupseq = groupseq
-        doc.num1 = seq_list_LN
-        # doc.qty = len(seq_list_LN)
-        doc.qty = seq_list_qty
+        doc.num1 = seq_list
+        doc.qty = len(seq_list)
         doc.bsreason = dfv[9]
 
         # doc.ComputeWithForm(True,True)
@@ -238,9 +237,7 @@ def Write_lotus(config,strdatetime,cnt,layout):
     print('first ',group1)
 
     # strdatetime="20241022134636"
-    row=0
     for dfv in df_sort.values:
-        row=row+1
         if str(dfv[4]).find(';')>=0:
             seq_list=str(dfv[4]).split(';')
             print("1",dfv[4],dfv[5])
@@ -254,30 +251,18 @@ def Write_lotus(config,strdatetime,cnt,layout):
         ####處理按組的補數編號, 例如便條簿start
         if config[3]=='Yes' and cnt>0 and layout>0:
 
-            for times_row, sl in enumerate(seq_list):
+            for sl in seq_list:
                 seq_list_group = []
                 for lay in range(layout):
                     seq_list_group.append(int(sl)+lay*cnt)
-                    seq_list_LN=int(sl) + lay * cnt
-                    seq_list_qty=1
-                    Times=(times_row+1)*10000000
-                    # groupseq=float(row)+float('0.' + str(10000000 + int(seq_list_LN)))
-                    groupseq = float(row) + float('0.' + str(Times + int(seq_list_LN)))
-                    create_doc()
-                # seq_list=seq_list_group
-                # groupseq=sl
-                # print("Group list seq:",seq_list, groupseq)
-                # create_doc()
+                    seq_list=int(sl) + lay * cnt
+                seq_list=seq_list_group
+                groupseq=sl
+                print("Group list seq:",seq_list, groupseq)
+                create_doc()
         else:
-
-            if pd.isna(dfv[7]) or pd.isnull(dfv[7]) or str(dfv[7]).isdigit()==False:
-                groupseq = 0
-            else:
-                groupseq=float(dfv[7])
+            groupseq = 0
             if seq_list:
-
-                seq_list_LN=seq_list
-                seq_list_qty = len(seq_list)
                 create_doc()
 
 
@@ -558,10 +543,10 @@ class mainwindow(QMainWindow):
                     seq_list = [str(seq) for seq in range(int(dfv[4]), int(dfv[5]) + 1)]
                     print("3", dfv[4], dfv[5])
 
-                if pd.isna(dfv[7]) or pd.isnull(dfv[7]) or str(dfv[7]).isdigit()==False:
+                if pd.isna(dfv[6]) or pd.isnull(dfv[6]):
                     groupseq = 0
                 else:
-                    groupseq = float(dfv[7])
+                    groupseq = float(dfv[6])
                 # print("Group:",groupseq)
                 if self.jobver_qty.get(dfv[0]) is not None:
                     max_qty = self.jobver_qty.get(dfv[0])
