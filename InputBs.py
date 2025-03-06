@@ -537,7 +537,7 @@ class mainwindow(QMainWindow):
                         # win32api.MessageBox(0, "工單: " + jv + " 是合并單, 不會檢測編號是否超出范圍, 請注意.", "錯誤提示!", win32con.MB_OK)
                         self.ui.textEdit_Log.append(jv + " 是合并單, 不會檢測編號是否超出范圍, 請注意.")
                 else:
-                    self.ui.pushButton_process.setEnabled(False)
+                    # self.ui.pushButton_process.setEnabled(False)
                     # QMessageBox.information(ui_mainwindow, "錯誤提示!", "工單 "+jv+" 不在DataDB, 檢測不到數量. 請檢查!")
                     self.ui.textEdit_Log.append(jv+" 不在DataDB, 檢測不到數量. 請檢查!")
 
@@ -571,7 +571,7 @@ class mainwindow(QMainWindow):
                     max_qty = 9999999
                     SerialTag = ""
                 if str(SerialTag).strip() != str(dfv[3]).strip():
-                    self.ui.pushButton_process.setEnabled(False)
+                    # self.ui.pushButton_process.setEnabled(False)
                     # win32api.MessageBox(0, "工單: " + dfv[0] + "識別碼: " + SerialTag + " 與Excel 補數檔: " + str(dfv[3]).strip() + " 不同, 請檢查.", "錯誤提示!", win32con.MB_OK)
                     self.ui.textEdit_Log.append(dfv[0] + " 識別碼: " + SerialTag + " 與Excel 補數檔: " + str(dfv[3]).strip() + " 不同, 請檢查.")
                 seq_list=[x for x in seq_list if x!=""]
@@ -581,7 +581,7 @@ class mainwindow(QMainWindow):
                     if int(sl) > max_qty:
                         if MainJobNum=="":
                             del seq_list[num]
-                            self.ui.pushButton_process.setEnabled(False)
+                            # self.ui.pushButton_process.setEnabled(False)
                             # win32api.MessageBox(0, "工單: " + dfv[0] + "補數編號: " + sl + " 大于工單數: " + str(int(max_qty)) + ", 請檢查.", "錯誤提示!", win32con.MB_OK)
                             self.ui.textEdit_Log.append(dfv[0] + " 補數編號: " + sl + " 大于工單數: " + str(int(max_qty)) + ", 請檢查.")
 
