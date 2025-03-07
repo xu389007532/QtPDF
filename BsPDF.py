@@ -712,12 +712,17 @@ class mainwindow(QMainWindow):
         print(bs_list1)
 
         bs_doc = fitz.open()
+        doc_seq = fitz.open()
         for bsfile in bs_list1:
-            doc_seq = fitz.open(scanfold + "\\" + bsfile[1])
+            # print(bsfile)
+            if doc_seq.name=="" or doc_seq.name.split('\\')[-1] != bsfile[1]:
+                doc_seq = fitz.open(scanfold + "\\" + bsfile[1])
+
             bspn = bsfile[5]  # 補數PDF頁碼
 
             page = bs_doc.new_page(-1, width=width, height=height)
             page.show_pdf_page(r1, doc_seq, bspn - 1, overlay=False)
+
 
         if bs_doc.page_count>0:
             bs_doc.save(self.outputfile+bskey+".pdf", garbage=0, deflate=True)  # 抽出了需要補數的單個PDF檔.
