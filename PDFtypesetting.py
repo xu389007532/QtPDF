@@ -1222,7 +1222,7 @@ def combine(list1):
                         shape.draw_rect(rb1)
 
                         shape.finish(width=0.3, fill=(1.0, 0.0784313725490196, 0.5764705882352941))
-                        shape.insert_textbox(rb1, str(time + 1), color=(1.0, 1.0, 1.0), fontsize=6, align=1, rotate=rotate)
+                        shape.insert_textbox(rb1, str(time + 1), color=(1.0, 1.0, 1.0), fontsize=6, align=1, rotate=rotate) #注意字體大小, 在3.9以上的版本, 用6pt 是出不到字體的. 3.8.9 這個版本可以
                         # shape.commit()
                         # page1.insert_textbox(rb1, str(time + 1), color=(1, 1, 1),fontname="helv", fontsize=6, align=1, rotate=rotate)
                         # print(rb1,ptx1)
