@@ -268,14 +268,15 @@ def Write_lotus(config,strdatetime,cnt,layout):
                 # groupseq=sl
                 # print("Group list seq:",seq_list, groupseq)
                 # create_doc()
-        else:
-
-            if pd.isna(dfv[7]) or pd.isnull(dfv[7]) or str(dfv[7]).isdigit()==False:
-                groupseq = 0
-            else:
-                groupseq=float(dfv[7])
+        elif config[3]=='Yes' and str(dfv[7]).isdigit() and cnt==0:
+            groupseq = float(dfv[7])
             if seq_list:
-
+                seq_list_LN=seq_list
+                seq_list_qty = len(seq_list)
+                create_doc()
+        else:
+            groupseq = 0
+            if seq_list:
                 seq_list_LN=seq_list
                 seq_list_qty = len(seq_list)
                 create_doc()
